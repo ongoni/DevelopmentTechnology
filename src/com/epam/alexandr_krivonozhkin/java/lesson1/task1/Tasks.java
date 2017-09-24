@@ -1,9 +1,7 @@
 package com.epam.alexandr_krivonozhkin.java.lesson1.task1;
 
-import javax.annotation.processing.SupportedSourceVersion;
 import java.util.*;
 import java.util.function.BinaryOperator;
-import java.util.function.Function;
 
 public class Tasks {
 
@@ -19,7 +17,9 @@ public class Tasks {
     private int getMinimum(int[] array) {
         int min = array[0];
         for (int item : array) {
-            if (item < min) min = item;
+            if (item < min) {
+                min = item;
+            }
         }
 
         return min;
@@ -61,7 +61,10 @@ public class Tasks {
     }
 
     private String getElementWithUniqueSymbols(List<String> words) {
-        return words.stream().filter(this::containsUniqueElements).findFirst().orElse("");
+        return words.stream()
+                .filter(this::containsUniqueElements)
+                .findFirst()
+                .orElse("");
     }
 
     private boolean containsUniqueElements(String word) {
@@ -79,7 +82,9 @@ public class Tasks {
         int n = in.nextInt();
         in.nextLine();
 
-        System.out.println(getElementWithUniqueSymbols(getFilledList(n, in)));
+        System.out.println(
+                getElementWithUniqueSymbols(getFilledList(n, in))
+        );
     }
 
     private double calculate(double a, double b, BinaryOperator<Double> operator) {
@@ -94,6 +99,7 @@ public class Tasks {
             System.out.print("enter b: ");
             int b = in.nextInt();
             System.out.print("enter operation (+, -, *, /): ");
+
             switch (in.next().charAt(0)) {
                 case '+':
                     System.out.println((int) calculate(a, b, (x, y) -> x + y));
@@ -106,6 +112,8 @@ public class Tasks {
                     break;
                 case '/':
                     System.out.println(calculate(a, b, (x, y) -> x / y));
+                    break;
+                default:
                     break;
             }
         }
