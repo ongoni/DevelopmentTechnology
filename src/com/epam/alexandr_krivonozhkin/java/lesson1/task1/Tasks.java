@@ -119,12 +119,13 @@ public class Tasks {
     }
 
     public static void main(String[] args) {
-        Tasks tasks = new Tasks();
+//        Tasks tasks = new Tasks();
 //        tasks.task1();
 //        tasks.task2();
 //        tasks.task3();
         TasksKt tasksKt = new TasksKt();
-        tasksKt.task1();
+//        tasksKt.task1();
+        tasksKt.task2();
     }
 
 }
