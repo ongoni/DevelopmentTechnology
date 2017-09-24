@@ -1,9 +1,6 @@
 package com.epam.alexandr_krivonozhkin.java.lesson1.task1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Tasks {
 
@@ -12,6 +9,7 @@ public class Tasks {
         for (int i = 0; i < length; i++) {
             array[i] = -10 + (int)(Math.random() * 20);
         }
+
         return array;
     }
 
@@ -20,6 +18,7 @@ public class Tasks {
         for (int item : array) {
             if (item < min) min = item;
         }
+
         return min;
     }
 
@@ -28,6 +27,7 @@ public class Tasks {
         for (int item : array) {
             sum += item;
         }
+
         return sum / array.length;
     }
 
@@ -45,17 +45,20 @@ public class Tasks {
         System.out.println(getMinimum(array) - getAverage(array));
     }
 
-    private String getElementWithUniqueSymbols() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("enter n: ");
-        int n = in.nextInt();
-
+    private List<String> getFilledList(int n, Scanner in) {
         System.out.print("enter text: ");
-        return Arrays.asList(in.nextLine().split(" ")).subList(0, n)
-                .stream()
-                .filter(this::containsUniqueElements)
-                .findFirst()
-                .get();
+        List<String> text = new ArrayList<>();
+
+        int i = 0;
+        while (i++ < n) {
+            text.add(in.next());
+        }
+
+        return text;
+    }
+
+    private String getElementWithUniqueSymbols(List<String> words) {
+        return words.stream().filter(this::containsUniqueElements).findFirst().orElse("");
     }
 
     private boolean containsUniqueElements(String word) {
@@ -68,7 +71,12 @@ public class Tasks {
     }
 
     public void Task2() {
-        System.out.println(getElementWithUniqueSymbols());
+        Scanner in = new Scanner(System.in);
+        System.out.print("enter n: ");
+        int n = in.nextInt();
+        in.nextLine();
+
+        System.out.println(getElementWithUniqueSymbols(getFilledList(n, in)));
     }
 
     public static void main(String[] args) {
