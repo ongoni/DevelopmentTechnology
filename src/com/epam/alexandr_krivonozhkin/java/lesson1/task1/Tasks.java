@@ -44,7 +44,7 @@ public class Tasks {
         int[] array = getFilledArray(20);
         print(array);
         System.out.println();
-        System.out.println(Math.abs(getMinimum(array) - getAverage(array)));
+        System.out.println(Math.abs(getMinimum(array)) - Math.abs(getAverage(array)));
     }
 
     private List<String> getFilledList(int n, Scanner in) {
@@ -122,7 +122,9 @@ public class Tasks {
         Tasks tasks = new Tasks();
 //        tasks.task1();
 //        tasks.task2();
-        tasks.task3();
+//        tasks.task3();
+        TasksKt tasksKt = new TasksKt();
+        tasksKt.task1();
     }
 
 }
