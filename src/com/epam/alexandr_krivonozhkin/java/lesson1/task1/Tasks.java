@@ -40,12 +40,11 @@ public class Tasks {
         }
     }
 
-    public void Task1() {
+    public void task1() {
         int[] array = getFilledArray(20);
         print(array);
         System.out.println();
-//        System.out.println(Math.abs(getMinimum(array) - getAverage(array)));
-        System.out.println(getMinimum(array) - getAverage(array));
+        System.out.println(Math.abs(getMinimum(array) - getAverage(array)));
     }
 
     private List<String> getFilledList(int n, Scanner in) {
@@ -76,7 +75,7 @@ public class Tasks {
         return true;
     }
 
-    public void Task2() {
+    public void task2() {
         Scanner in = new Scanner(System.in);
         System.out.print("enter n: ");
         int n = in.nextInt();
@@ -91,7 +90,7 @@ public class Tasks {
         return operator.apply(a, b);
     }
 
-    public void Task3() {
+    public void task3() {
         Scanner in = new Scanner(System.in);
         while (true) {
             System.out.print("enter a: ");
@@ -121,9 +120,9 @@ public class Tasks {
 
     public static void main(String[] args) {
         Tasks tasks = new Tasks();
-//        tasks.Task1();
-//        tasks.Task2();
-        tasks.Task3();
+//        tasks.task1();
+//        tasks.task2();
+        tasks.task3();
     }
 
 }
