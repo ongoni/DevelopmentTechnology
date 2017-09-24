@@ -45,12 +45,17 @@ public class Tasks {
         System.out.println(getMinimum(array) - getAverage(array));
     }
 
-    private List<String> fillList(Scanner in) {
+    private String getElementWithUniqueSymbols() {
+        Scanner in = new Scanner(System.in);
         System.out.print("enter n: ");
         int n = in.nextInt();
 
         System.out.print("enter text: ");
-        return new ArrayList<>(Arrays.asList(in.nextLine().split(" ")).subList(0, n));
+        return Arrays.asList(in.nextLine().split(" ")).subList(0, n)
+                .stream()
+                .filter(this::containsUniqueElements)
+                .findFirst()
+                .get();
     }
 
     private boolean containsUniqueElements(String word) {
@@ -63,12 +68,7 @@ public class Tasks {
     }
 
     public void Task2() {
-        System.out.println(
-                fillList(new Scanner(System.in)).stream()
-                        .filter(this::containsUniqueElements)
-                        .findFirst()
-                        .get()
-        );
+        System.out.println(getElementWithUniqueSymbols());
     }
 
     public static void main(String[] args) {
