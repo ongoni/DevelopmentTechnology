@@ -1,6 +1,9 @@
 package com.epam.alexandr_krivonozhkin.java.lesson1.task1;
 
+import javax.annotation.processing.SupportedSourceVersion;
 import java.util.*;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 
 public class Tasks {
 
@@ -79,10 +82,40 @@ public class Tasks {
         System.out.println(getElementWithUniqueSymbols(getFilledList(n, in)));
     }
 
+    private double calculate(double a, double b, BinaryOperator<Double> operator) {
+        return operator.apply(a, b);
+    }
+
+    public void Task3() {
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            System.out.print("enter a: ");
+            int a = in.nextInt();
+            System.out.print("enter b: ");
+            int b = in.nextInt();
+            System.out.print("enter operation (+, -, *, /): ");
+            switch (in.next().charAt(0)) {
+                case '+':
+                    System.out.println((int) calculate(a, b, (x, y) -> x + y));
+                    break;
+                case '-':
+                    System.out.println((int) calculate(a, b, (x, y) -> x - y));
+                    break;
+                case '*':
+                    System.out.println((int) calculate(a, b, (x, y) -> x * y));
+                    break;
+                case '/':
+                    System.out.println(calculate(a, b, (x, y) -> x / y));
+                    break;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Tasks tasks = new Tasks();
 //        tasks.Task1();
-        tasks.Task2();
+//        tasks.Task2();
+        tasks.Task3();
     }
 
 }
