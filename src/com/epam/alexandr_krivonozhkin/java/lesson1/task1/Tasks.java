@@ -1,19 +1,17 @@
-package com.epam.alexandr_krivonozhkin.java.lesson1.tas1;
-
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+package com.epam.alexandr_krivonozhkin.java.lesson1.task1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Task {
+public class Tasks {
 
     private int[] getFilledArray(int length) {
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
             array[i] = -10 + (int)(Math.random() * 20);
         }
-
         return array;
     }
 
@@ -22,7 +20,6 @@ public class Task {
         for (int item : array) {
             if (item < min) min = item;
         }
-
         return min;
     }
 
@@ -31,7 +28,6 @@ public class Task {
         for (int item : array) {
             sum += item;
         }
-
         return sum / array.length;
     }
 
@@ -44,7 +40,9 @@ public class Task {
     public void Task1() {
         int[] array = getFilledArray(20);
         print(array);
-        System.out.println(Math.abs(getMinimum(array) - getAverage(array)));
+        System.out.println();
+//        System.out.println(Math.abs(getMinimum(array) - getAverage(array)));
+        System.out.println(getMinimum(array) - getAverage(array));
     }
 
     private List<String> fillList(Scanner in) {
@@ -52,22 +50,31 @@ public class Task {
         int n = in.nextInt();
 
         System.out.print("enter text: ");
-        List<String> text = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            text.add(in.next());
-        }
+        return new ArrayList<>(Arrays.asList(in.nextLine().split(" ")).subList(0, n));
+    }
 
-        return text;
+    private boolean containsUniqueElements(String word) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.lastIndexOf(word.charAt(i)) != i) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void Task2() {
-        List<String> text = fillList(new Scanner(System.in));
-
-        
+        System.out.println(
+                fillList(new Scanner(System.in)).stream()
+                        .filter(this::containsUniqueElements)
+                        .findFirst()
+                        .get()
+        );
     }
 
     public static void main(String[] args) {
-        Task task = new Task();
-        task.Task1();
+        Tasks tasks = new Tasks();
+//        tasks.Task1();
+        tasks.Task2();
     }
+
 }
