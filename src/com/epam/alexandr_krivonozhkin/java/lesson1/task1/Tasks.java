@@ -41,6 +41,7 @@ public class Tasks {
     }
 
     public void task1() {
+        System.out.println("task 1:");
         int[] array = getFilledArray(20);
         print(array);
         System.out.println();
@@ -76,6 +77,7 @@ public class Tasks {
     }
 
     public void task2() {
+        System.out.println("task 2:");
         Scanner in = new Scanner(System.in);
         System.out.print("enter n: ");
         int n = in.nextInt();
@@ -91,7 +93,9 @@ public class Tasks {
     }
 
     public void task3() {
+        System.out.println("task 3:");
         Scanner in = new Scanner(System.in);
+
         while (true) {
             System.out.print("enter a: ");
             int a = in.nextInt();
@@ -99,33 +103,39 @@ public class Tasks {
             int b = in.nextInt();
             System.out.print("enter operation (+, -, *, /): ");
 
+            double result = 0;
             switch (in.next().charAt(0)) {
                 case '+':
-                    System.out.println((int) calculate(a, b, (x, y) -> x + y));
+                    result = calculate(a, b, (x, y) -> x + y);
                     break;
                 case '-':
-                    System.out.println((int) calculate(a, b, (x, y) -> x - y));
+                    result = calculate(a, b, (x, y) -> x - y);
                     break;
                 case '*':
-                    System.out.println((int) calculate(a, b, (x, y) -> x * y));
+                    result = calculate(a, b, (x, y) -> x * y);
                     break;
                 case '/':
-                    System.out.println(calculate(a, b, (x, y) -> x / y));
+                    result = calculate(a, b, (x, y) -> x / y);
                     break;
                 default:
                     break;
             }
+
+            System.out.println(result);
         }
     }
 
     public static void main(String[] args) {
-//        Tasks tasks = new Tasks();
-//        tasks.task1();
-//        tasks.task2();
-//        tasks.task3();
+        System.out.println("java:");
+        Tasks tasks = new Tasks();
+        tasks.task1();
+        tasks.task2();
+        tasks.task3();
+        System.out.println("kotlin:");
         TasksKt tasksKt = new TasksKt();
-//        tasksKt.task1();
+        tasksKt.task1();
         tasksKt.task2();
+        tasksKt.task3();
     }
 
 }

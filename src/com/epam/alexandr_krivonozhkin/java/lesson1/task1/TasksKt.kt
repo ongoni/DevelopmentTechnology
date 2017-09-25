@@ -5,7 +5,7 @@ import java.util.*
 class TasksKt {
 
     private fun getFilledArray(length: Int) : IntArray {
-        return (0..length)
+        return (0 until length)
                 .map { -10 + (Math.random() * 20).toInt() }
                 .toIntArray()
     }
@@ -21,10 +21,11 @@ class TasksKt {
     }
 
     fun task1() {
+        println("task 1:")
         val array = getFilledArray(20)
         print(array)
         println()
-        println(Math.abs(getAverage(array)) - Math.abs(getMinimum(array)))
+        println(Math.abs(getMinimum(array)) - Math.abs(getAverage(array)))
     }
 
     private fun getFilledList(n: Int) : MutableList<String> {
@@ -43,10 +44,34 @@ class TasksKt {
     }
 
     fun task2() {
+        println("task 2:")
         print("enter n: ")
         val n = readLine()!!.toInt()
 
         println(getFilledList(n).first { x -> containsUniqueElements(x) })
+    }
+
+    fun task3() {
+        println("task 3:")
+
+        while (true) {
+            print("enter a: ")
+            val a = readLine()!!.toDouble()
+            print("enter b: ")
+            val b = readLine()!!.toDouble()
+            print("enter operation (+, -, *, /): ")
+            val operation = readLine()!!.first()
+
+            val result = when (operation) {
+                '+' -> a.plus(b)
+                '-' -> a.minus(b)
+                '*' -> a.times(b)
+                '/' -> a.div(b)
+                else -> 0.0
+            }
+
+            println(result)
+        }
     }
 
 }
