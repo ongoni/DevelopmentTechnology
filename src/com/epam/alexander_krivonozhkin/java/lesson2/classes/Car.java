@@ -1,5 +1,7 @@
 package com.epam.alexander_krivonozhkin.java.lesson2.classes;
 
+import com.epam.alexander_krivonozhkin.java.lesson2.exceptions.EmptyStringException;
+import com.epam.alexander_krivonozhkin.java.lesson2.exceptions.NegativeValueException;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class Car implements Comparable<Car> {
@@ -10,18 +12,23 @@ public abstract class Car implements Comparable<Car> {
     protected double fuelConsumption;
 
     public Car(String brand, String model, double price, double fuelConsumption) {
-        this
-                .setBrand(brand)
-                .setModel(model)
-                .setPrice(price)
-                .setFuelConsumption(fuelConsumption);
+        try {
+            this
+                    .setBrand(brand)
+                    .setModel(model)
+                    .setPrice(price)
+                    .setFuelConsumption(fuelConsumption);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public Car setBrand(String brand) {
+    public Car setBrand(String brand) throws EmptyStringException {
+        if (brand.length() == 0) throw new EmptyStringException();
         this.brand = brand;
         return this;
     }
@@ -30,7 +37,8 @@ public abstract class Car implements Comparable<Car> {
         return model;
     }
 
-    public Car setModel(String model) {
+    public Car setModel(String model) throws EmptyStringException {
+        if (model.length() == 0) throw new EmptyStringException();
         this.model = model;
         return this;
     }
@@ -39,7 +47,8 @@ public abstract class Car implements Comparable<Car> {
         return price;
     }
 
-    public Car setPrice(double price) {
+    public Car setPrice(double price) throws NegativeValueException {
+        if (price < 0) throw new NegativeValueException();
         this.price = price;
         return this;
     }
@@ -48,7 +57,8 @@ public abstract class Car implements Comparable<Car> {
         return fuelConsumption;
     }
 
-    public Car setFuelConsumption(double fuelConsumption) {
+    public Car setFuelConsumption(double fuelConsumption) throws NegativeValueException {
+        if (price < 0) throw new NegativeValueException();
         this.fuelConsumption = fuelConsumption;
         return this;
     }
