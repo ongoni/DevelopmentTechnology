@@ -1,6 +1,4 @@
-package com.epam.alexandr_krivonozhkin.java.lesson1.task1
-
-import java.util.*
+package com.epam.alexander_krivonozhkin.java.lesson1
 
 class TasksKt {
 
@@ -29,7 +27,7 @@ class TasksKt {
     }
 
     private fun getFilledList(n: Int) : MutableList<String> {
-        var text = mutableListOf<String>()
+        var text: MutableList<String>
         do {
             print("enter text: ")
             text = readLine()!!.split(' ').toMutableList()
@@ -39,9 +37,7 @@ class TasksKt {
         return text.subList(0, n)
     }
 
-    private fun containsUniqueElements(word: String) : Boolean {
-        return word.length == word.toCharArray().distinct().size
-    }
+    private fun containsUniqueElements(word: String) : Boolean = word.length == word.toCharArray().distinct().size
 
     fun task2() {
         println("task 2:")

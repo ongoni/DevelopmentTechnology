@@ -1,4 +1,4 @@
-package com.epam.alexandr_krivonozhkin.java.lesson1.task1;
+package com.epam.alexander_krivonozhkin.java.lesson1;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
