@@ -3,7 +3,7 @@ package com.epam.alexander_krivonozhkin.java.lesson1;
 import java.util.*;
 import java.util.function.BinaryOperator;
 
-public class Tasks {
+public class Lesson1 {
 
     private int[] getFilledArray(int length) {
         int[] array = new int[length];
@@ -40,7 +40,7 @@ public class Tasks {
         }
     }
 
-    public void task1() {
+    public void runTask1() {
         System.out.println("task 1:");
         int[] array = getFilledArray(20);
         print(array);
@@ -76,7 +76,7 @@ public class Tasks {
         return true;
     }
 
-    public void task2() {
+    public void runTask2() {
         System.out.println("task 2:");
         Scanner in = new Scanner(System.in);
         System.out.print("enter n: ");
@@ -92,7 +92,7 @@ public class Tasks {
         return operator.apply(a, b);
     }
 
-    public void task3() {
+    public void runTask3() {
         System.out.println("task 3:");
         Scanner in = new Scanner(System.in);
 
@@ -123,19 +123,6 @@ public class Tasks {
 
             System.out.println(result);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("java:");
-        Tasks tasks = new Tasks();
-        tasks.task1();
-        tasks.task2();
-        tasks.task3();
-        System.out.println("kotlin:");
-        TasksKt tasksKt = new TasksKt();
-        tasksKt.task1();
-        tasksKt.task2();
-        tasksKt.task3();
     }
 
 }

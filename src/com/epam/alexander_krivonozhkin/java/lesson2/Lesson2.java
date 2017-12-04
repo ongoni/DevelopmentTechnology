@@ -8,14 +8,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Comparator;
 
-public class Main {
+public class Lesson2 {
 
-    public static void main(String[] args) {
+    public void runTask() {
         TaxiStation station = new TaxiStation();
         Serializer serializer = new Serializer();
+        FileUtils utils = new FileUtils();
 
         System.out.println("source:");
-        station.addAll(new FileUtils().readCarsFrom(new File("./cars.txt")));
+        station.addAll(utils.readCarsFrom(new File("./cars.txt")));
         station.show();
 
         try {
@@ -23,8 +24,6 @@ public class Main {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println("serialized:");
-        System.out.println(new FileUtils().readAll(new File("./data.json")));
         System.out.println("deserialized:");
         serializer.deserialize().show();
 
