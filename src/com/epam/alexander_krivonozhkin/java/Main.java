@@ -4,6 +4,8 @@ import com.epam.alexander_krivonozhkin.java.lesson1.Lesson1;
 import com.epam.alexander_krivonozhkin.java.lesson2.Lesson2;
 import com.epam.alexander_krivonozhkin.java.lesson3.Lesson3;
 
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,11 +14,11 @@ public class Main {
 //        lesson1.runTask2();
 //        lesson1.runTask3();
 
-        Lesson2 lesson2 = new Lesson2();
-        lesson2.runTask();
+//        Lesson2 lesson2 = new Lesson2();
+//        lesson2.runTask();
 
         Lesson3 lesson3 = new Lesson3();
-        lesson3.runTask();
+        lesson3.runTask(false);
     }
 
 }

@@ -5,27 +5,12 @@ import java.util.Arrays;
 public class Schedule {
 
     protected static int daysInWeek = 7;
-    protected static int defaultDayDuraion = 8;
+    protected static int defaultDayDuration = 8;
 
     protected int[] hoursByDay = new int[daysInWeek];
 
-    Schedule() {
-        Arrays.fill(hoursByDay, 0, hoursByDay.length - 1, defaultDayDuraion);
-    }
-
-    Schedule(int[] hoursByDay) {
-        this();
-        for (int i = 0; i < hoursByDay.length; i++) setHoursAt(i, hoursByDay[i]);
-    }
-
-    public void setHoursAt(int day, int hours) {
-        if (day < 0 || day >= hoursByDay.length) return;
-
-        hoursByDay[day] = Math.max(Math.min(hours, 24), 0);
-    }
-
-    public int getTotalHours() {
-        return Arrays.stream(hoursByDay).sum();
+    public Schedule() {
+        Arrays.fill(hoursByDay, 0, hoursByDay.length - 1, defaultDayDuration);
     }
 
     public int getRequiredDaysForHours(int hours) {
@@ -39,6 +24,15 @@ public class Schedule {
         }
 
         return days;
+    }
+
+    public int[] getHoursByDay() {
+        return hoursByDay;
+    }
+
+    public Schedule setHoursByDay(int[] hoursByDay) {
+        this.hoursByDay = hoursByDay;
+        return this;
     }
 
 }
