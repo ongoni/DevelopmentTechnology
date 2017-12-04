@@ -1,0 +1,34 @@
+{
+  "carPool": [
+    {
+      "type": "PassengerCar",
+      "properties": {
+        "passengerSeatCount": 3,
+        "brand": "﻿Lada",
+        "model": "Kalina",
+        "price": 500000.0,
+        "fuelConsumption": 7.0
+      }
+    },
+    {
+      "type": "PassengerCar",
+      "properties": {
+        "passengerSeatCount": 3,
+        "brand": "Lada",
+        "model": "Kalina V2",
+        "price": 550000.0,
+        "fuelConsumption": 6.5
+      }
+    },
+    {
+      "type": "PassengerCar",
+      "properties": {
+        "passengerSeatCount": 12,
+        "brand": "ГАЗ",
+        "model": "3302",
+        "price": 900000.0,
+        "fuelConsumption": 14.0
+      }
+    }
+  ]
+}

@@ -14,23 +14,25 @@ public class Main {
         TaxiStation station = new TaxiStation();
         Serializer serializer = new Serializer();
 
+        System.out.println("source:");
         station.addAll(new FileUtils().readCarsFrom(new File("./cars.txt")));
         station.show();
-        System.out.println();
 
         try {
             serializer.serialize(station);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        System.out.println("serialized:");
+        System.out.println(new FileUtils().readAll(new File("./data.json")));
+        System.out.println("deserialized:");
         serializer.deserialize().show();
-        System.out.println();
 
+        System.out.println("sorted:");
         station.sorted(Comparator.naturalOrder()).show();
-        System.out.println();
 
         System.out.println("full price - " + station.getFullPrice() + "\u20BD");
-        System.out.println(station.findOneBy(x -> x.getBrand().equals("Lada") && x.getPrice() > 500000));
+        System.out.println("found by criteria - " + station.findOneBy(x -> x.getBrand().equals("Lada") && x.getPrice() > 500000));
     }
 
 }

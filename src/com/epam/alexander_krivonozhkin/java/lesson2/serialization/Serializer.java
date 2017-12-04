@@ -14,7 +14,7 @@ public class Serializer {
     protected String path;
 
     public Serializer() {
-        this.path = "data.json";
+        this.path = "./data.json";
     }
 
     public Serializer(String path) {

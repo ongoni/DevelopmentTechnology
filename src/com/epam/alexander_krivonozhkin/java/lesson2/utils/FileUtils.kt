@@ -8,11 +8,11 @@ class FileUtils {
 
     fun write(content: String, to: File) = to.writeText(content)
 
-    fun readAll(file: File) : String = file.readText()
+    fun readAll(from: File) : String = from.readText()
 
-    fun readCarsFrom(file: File) : List<Car> {
+    fun readCarsFrom(from: File) : List<Car> {
         val result: MutableList<Car> = mutableListOf()
-        file.bufferedReader().lines().forEach {
+        from.bufferedReader().lines().forEach {
             val args = it.split("; ")
             result.add(PassengerCar(args[0], args[1], args[2].toDouble(), args[3].toDouble(), args[4].toInt()))
         }
