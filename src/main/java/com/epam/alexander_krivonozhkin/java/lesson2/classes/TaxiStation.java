@@ -1,5 +1,7 @@
 package com.epam.alexander_krivonozhkin.java.lesson2.classes;
 
+import com.epam.alexander_krivonozhkin.java.collections.reList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -9,17 +11,17 @@ import java.util.stream.Collectors;
 
 public class TaxiStation {
 
-    protected List<Car> carPool;
+    protected reList carPool;
 
     public TaxiStation() {
-        this.carPool = new ArrayList<>();
+        this.carPool = new reList();
     }
 
     public TaxiStation(TaxiStation station) {
-        this.carPool = new ArrayList<>(station.carPool);
+        this.carPool = new reList(station.carPool);
     }
 
-    public TaxiStation(List<Car> carPool) {
+    public TaxiStation(reList carPool) {
         this.carPool = carPool;
     }
 
@@ -42,33 +44,22 @@ public class TaxiStation {
     }
 
     public TaxiStation sorted(Comparator<Car> comparator) {
-        return new TaxiStation(
-                this.carPool.stream()
-                        .sorted(comparator)
-                        .collect(Collectors.toList())
-        );
+        return new TaxiStation(carPool.sorted(comparator));
     }
 
     public double getFullPrice() {
-        return this.carPool.stream()
-                .reduce(
-                        0.0,
-                        (sum, car) -> sum += car.price,
-                        (sum1, sum2) -> sum1 + sum2
-                );
+        double result = 0.0;
+        for (Car car : carPool) result += car.price;
+
+        return result;
     }
 
     public Car findOneBy(Predicate<Car> predicate) {
-        return this.carPool.stream()
-                .filter(predicate)
-                .findFirst()
-                .orElse(null);
+        return carPool.findFirst(predicate);
     }
 
-    public List<Car> findAll(Predicate<Car> predicate) {
-        return this.carPool.stream()
-                .filter(predicate)
-                .collect(Collectors.toList());
+    public reList findAll(Predicate<Car> predicate) {
+        return carPool.filter(predicate);
     }
 
 }
