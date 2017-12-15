@@ -24,7 +24,7 @@ public class Student {
                     .plusDays(allCurriculumLength / 8 - 1)
                     .withHour(18)
                     .withMinute(0);
-            if (startDate.getHour() >= 10) {
+            if (startDate.getHour() >= 10 && startDate.getMinute() > 0) {
                 finishDate = finishDate.plusDays(1);
                 if (startDate.getHour() < 18) {
                     finishDate = finishDate
