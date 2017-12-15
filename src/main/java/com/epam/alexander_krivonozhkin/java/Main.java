@@ -18,11 +18,11 @@ public class Main {
 //        lesson1.runTask2();
 //        lesson1.runTask3();
 
-        Lesson2 lesson2 = new Lesson2();
-        lesson2.runTask();
+//        Lesson2 lesson2 = new Lesson2();
+//        lesson2.runTask();
 
-//        Lesson3 lesson3 = new Lesson3();
-//        lesson3.runTask(false);
+        Lesson3 lesson3 = new Lesson3();
+        lesson3.runTask(true);
 
 //        Car car1 = null, car2 = null, car3 = null;
 //        try {

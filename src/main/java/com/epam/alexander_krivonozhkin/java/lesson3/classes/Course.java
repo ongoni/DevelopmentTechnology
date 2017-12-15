@@ -28,4 +28,8 @@ public class Course {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return title + "\t" + duration;
+    }
 }

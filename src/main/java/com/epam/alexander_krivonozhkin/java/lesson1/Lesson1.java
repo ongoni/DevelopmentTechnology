@@ -40,14 +40,6 @@ public class Lesson1 {
         }
     }
 
-    public void runTask1() {
-        System.out.println("task 1:");
-        int[] array = getFilledArray(20);
-        print(array);
-        System.out.println();
-        System.out.println(Math.abs(getMinimum(array)) - Math.abs(getAverage(array)));
-    }
-
     private List<String> getFilledList(int n, Scanner in) {
         System.out.print("enter text: ");
         List<String> text = new ArrayList<>();
@@ -74,6 +66,14 @@ public class Lesson1 {
             }
         }
         return true;
+    }
+
+    public void runTask1() {
+        System.out.println("task 1:");
+        int[] array = getFilledArray(20);
+        print(array);
+        System.out.println();
+        System.out.println(Math.abs(getMinimum(array)) - Math.abs(getAverage(array)));
     }
 
     public void runTask2() {
